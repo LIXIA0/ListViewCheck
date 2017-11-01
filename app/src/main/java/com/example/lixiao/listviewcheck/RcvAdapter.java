@@ -66,7 +66,12 @@ public class RcvAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
     public void mutilSelect(int position){
         DataBean dataBean = dataBeen.get(position);
-        dataBean.setIscheck(true);
+        boolean ischeck = dataBean.ischeck();
+        if(ischeck){
+            dataBean.setIscheck(false);
+        }else {
+            dataBean.setIscheck(true);
+        }
         notifyDataSetChanged();
     }
     public void singleSelect(int position){
